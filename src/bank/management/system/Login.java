@@ -30,15 +30,21 @@ public class Login extends JFrame{
 		
 		JLabel cardno = new JLabel("Card No.:");
 		cardno.setFont(new Font("Raleway", Font.BOLD, 20));
-		cardno.setBounds(120, 150, 400, 40);
+		cardno.setBounds(120, 150, 400, 30);
 		add(cardno);
 		
-		
+		JTextField cardTextField = new JTextField();
+		cardTextField.setBounds(250, 150, 250, 30);
+		add(cardTextField);
 		
 		JLabel pin = new JLabel("PIN:");
 		pin.setFont(new Font("Raleway", Font.BOLD, 20));
-		pin.setBounds(120, 220, 400, 40);
+		pin.setBounds(170, 220, 250, 30);
 		add(pin);
+		
+		JTextField pinTextField = new JTextField();
+		pinTextField.setBounds(250, 220, 250, 30);
+		add(pinTextField);
 		
 		
 		setSize(800, 480);
