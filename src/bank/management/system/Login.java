@@ -1,5 +1,6 @@
 package bank.management.system;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 
@@ -39,17 +40,29 @@ public class Login extends JFrame{
 		
 		JLabel pin = new JLabel("PIN:");
 		pin.setFont(new Font("Raleway", Font.BOLD, 20));
-		pin.setBounds(170, 220, 250, 30);
+		pin.setBounds(170, 200, 250, 30);
 		add(pin);
 		
 		JTextField pinTextField = new JTextField();
-		pinTextField.setBounds(250, 220, 250, 30);
+		pinTextField.setBounds(250, 200, 250, 30);
 		add(pinTextField);
 		
+		JButton login = new JButton("SIGN IN");
+		login.setBounds(270, 250, 100, 30);
+		login.setBackground(Color.BLACK);
+		login.setForeground(Color.WHITE);
+		add(login);
+		
+		JButton clear = new JButton("CLEAR");
+		clear.setBounds(380, 250, 100, 30);
+		clear.setBackground(Color.BLACK);
+		clear.setForeground(Color.WHITE);
+		add(clear);
 		
 		setSize(800, 480);
 		setVisible(true);
 		setLocation(350, 200);
+		
 	}
 
 	public static void main(String[] args) {
