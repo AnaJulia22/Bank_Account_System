@@ -21,13 +21,13 @@ public class SignUpOne extends JFrame {
 		long random = Math.abs((ran.nextLong() % 9000L) + 1000L);
 		
 		JLabel formNo = new JLabel("APPLICATION FORM NO. " + random);
-		formNo.setFont(new Font("Raleway", Font.BOLD, 38));
+		formNo.setFont(new Font("Raleway", Font.BOLD, 30));
 		formNo.setBounds(140, 20, 600, 40);
 		add(formNo);
 		
 		JLabel personalDetail = new JLabel("Page #1: personal details");
-		personalDetail.setFont(new Font("Raleway", Font.BOLD, 22));
-		personalDetail.setBounds(290, 80, 400, 30);
+		personalDetail.setFont(new Font("Raleway", Font.BOLD, 20));
+		personalDetail.setBounds(250, 60, 400, 30);
 		add(personalDetail);
 		
 		JLabel name = new JLabel("Name:");
@@ -35,7 +35,7 @@ public class SignUpOne extends JFrame {
 		name.setBounds(100, 130, 400, 30);
 		add(name);		
 		nameTextField = new JTextField();
-		nameTextField.setBounds(300, 135, 250, 25);
+		nameTextField.setBounds(300, 135, 300, 25);
 		nameTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(nameTextField);
 		
@@ -44,7 +44,7 @@ public class SignUpOne extends JFrame {
 		fName.setBounds(100, 180, 400, 30);
 		add(fName);
 		fnameTextField = new JTextField();
-		fnameTextField.setBounds(300, 185, 250, 25);
+		fnameTextField.setBounds(300, 185, 300, 25);
 		fnameTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(fnameTextField);
 		
@@ -54,7 +54,7 @@ public class SignUpOne extends JFrame {
 		add(dateBirth);
 		
 		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(300, 230, 250, 25);
+		dateChooser.setBounds(300, 230, 300, 25);
 		add(dateChooser);
 		
 		JLabel gender = new JLabel("Gender:");
@@ -83,7 +83,7 @@ public class SignUpOne extends JFrame {
 		emailAddress.setBounds(100, 330, 400, 30);
 		add(emailAddress);		
 		eAddressTextField = new JTextField();
-		eAddressTextField.setBounds(300, 335, 250, 25);
+		eAddressTextField.setBounds(300, 335, 300, 25);
 		eAddressTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(eAddressTextField);
 		
@@ -120,7 +120,7 @@ public class SignUpOne extends JFrame {
 		address.setBounds(100, 430, 400, 30);
 		add(address);		
 		addressTextField = new JTextField();
-		addressTextField.setBounds(300, 435, 250, 25);
+		addressTextField.setBounds(300, 435, 300, 25);
 		addressTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(addressTextField);
 		
@@ -129,7 +129,7 @@ public class SignUpOne extends JFrame {
 		city.setBounds(100, 480, 400, 30);
 		add(city);		
 		cityTextField = new JTextField();
-		cityTextField.setBounds(300, 485, 250, 25);
+		cityTextField.setBounds(300, 485, 300, 25);
 		cityTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(cityTextField);
 		
@@ -138,7 +138,7 @@ public class SignUpOne extends JFrame {
 		state.setBounds(100, 530, 400, 30);
 		add(state);		
 		stateTextField = new JTextField();
-		stateTextField.setBounds(300, 535, 250, 25);
+		stateTextField.setBounds(300, 535, 300, 25);
 		stateTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(stateTextField);
 		
@@ -147,9 +147,16 @@ public class SignUpOne extends JFrame {
 		pin.setBounds(100, 580, 400, 30);
 		add(pin);		
 		pinTextField = new JTextField();
-		pinTextField.setBounds(300, 585, 250, 25);
+		pinTextField.setBounds(300, 585, 300, 25);
 		pinTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(pinTextField);
+		
+		JButton next = new JButton("Next");
+		next.setBackground(Color.BLACK);
+		next.setForeground(Color.WHITE);
+		next.setFont(new Font("Raleway", Font.BOLD, 14));
+		next.setBounds(520, 620, 80, 30);
+		add(next);
 				
 		getContentPane().setBackground(Color.WHITE);
 		
