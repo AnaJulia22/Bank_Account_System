@@ -63,8 +63,18 @@ public class SignUpOne extends JFrame {
 		add(gender);
 		
 		JRadioButton male = new JRadioButton("Male");
+		male.setBounds(300, 280, 60, 30);
+		male.setBackground(Color.WHITE);
+		add(male);
 		
 		JRadioButton female = new JRadioButton("Female");
+		female.setBounds(370, 280, 70, 30);
+		female.setBackground(Color.WHITE);
+		add(female);
+		
+		ButtonGroup genderGroup = new ButtonGroup();
+		genderGroup.add(female);
+		genderGroup.add(male);
 		
 		JLabel emailAddress = new JLabel("Email Address:");
 		emailAddress.setFont(new Font("Raleway", Font.BOLD, 20));
