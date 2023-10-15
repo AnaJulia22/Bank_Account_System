@@ -2,8 +2,8 @@ package bank.management.system;
 
 import java.awt.*;
 import java.util.*;
-
 import javax.swing.*;
+import com.toedter.calendar.JDateChooser;
 
 public class SignUpOne extends JFrame {
 	
@@ -53,10 +53,18 @@ public class SignUpOne extends JFrame {
 		dateBirth.setBounds(100, 230, 400, 30);
 		add(dateBirth);
 		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(300, 230, 250, 25);
+		add(dateChooser);
+		
 		JLabel gender = new JLabel("Gender:");
 		gender.setFont(new Font("Raleway", Font.BOLD, 20));
 		gender.setBounds(100, 280, 400, 30);
 		add(gender);
+		
+		JRadioButton male = new JRadioButton("Male");
+		
+		JRadioButton female = new JRadioButton("Female");
 		
 		JLabel emailAddress = new JLabel("Email Address:");
 		emailAddress.setFont(new Font("Raleway", Font.BOLD, 20));
