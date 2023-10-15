@@ -90,6 +90,26 @@ public class SignUpOne extends JFrame {
 		maritalStatus.setBounds(100, 380, 400, 30);
 		add(maritalStatus);	
 		
+		JRadioButton married = new JRadioButton("Married");
+		married.setBounds(300, 380, 70, 30);
+		married.setBackground(Color.WHITE);
+		add(married);
+		
+		JRadioButton unmarried = new JRadioButton("Unmarried");
+		unmarried.setBounds(370, 380, 90, 30);
+		unmarried.setBackground(Color.WHITE);
+		add(unmarried);
+		
+		JRadioButton widowed = new JRadioButton("Widowed");
+		widowed.setBounds(460, 380, 90, 30);
+		widowed.setBackground(Color.WHITE);
+		add(widowed);
+		
+		ButtonGroup maritalgroup = new ButtonGroup();
+		maritalgroup.add(widowed);
+		maritalgroup.add(unmarried);
+		maritalgroup.add(married);
+		
 		JLabel address = new JLabel("Address:");
 		address.setFont(new Font("Raleway", Font.BOLD, 20));
 		address.setBounds(100, 430, 400, 30);
