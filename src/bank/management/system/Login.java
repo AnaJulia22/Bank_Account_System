@@ -21,10 +21,10 @@ public class Login extends JFrame implements ActionListener{
 		setTitle("ATM");
 		setLayout(null);
 		
-		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/2038009.png"));
-		i1.setImage(i1.getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT));
+		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/transferir.png"));
+		i1.setImage(i1.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 		label = new JLabel(i1); 
-		label.setBounds(10, 10, 100, 100);
+		label.setBounds(100, 10, 100, 100);
 		add(label);
 		
 		text = new JLabel("Welcome to ATM!");
@@ -73,6 +73,7 @@ public class Login extends JFrame implements ActionListener{
 		signUp.addActionListener(this);
 		add(signUp);
 		
+		getContentPane().setBackground(Color.WHITE);		
 		setSize(800, 480);
 		setVisible(true);
 		setLocation(350, 200);
