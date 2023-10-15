@@ -65,11 +65,13 @@ public class SignUpOne extends JFrame {
 		JRadioButton male = new JRadioButton("Male");
 		male.setBounds(300, 280, 60, 30);
 		male.setBackground(Color.WHITE);
+		male.setFocusPainted(false);
 		add(male);
 		
 		JRadioButton female = new JRadioButton("Female");
 		female.setBounds(370, 280, 70, 30);
 		female.setBackground(Color.WHITE);
+		female.setFocusPainted(false);
 		add(female);
 		
 		ButtonGroup genderGroup = new ButtonGroup();
@@ -93,17 +95,20 @@ public class SignUpOne extends JFrame {
 		JRadioButton married = new JRadioButton("Married");
 		married.setBounds(300, 380, 70, 30);
 		married.setBackground(Color.WHITE);
+		married.setFocusPainted(false);
 		add(married);
 		
 		JRadioButton unmarried = new JRadioButton("Unmarried");
 		unmarried.setBounds(370, 380, 90, 30);
 		unmarried.setBackground(Color.WHITE);
+		unmarried.setFocusPainted(false);
 		add(unmarried);
 		
 		JRadioButton widowed = new JRadioButton("Widowed");
 		widowed.setBounds(460, 380, 90, 30);
 		widowed.setBackground(Color.WHITE);
-		add(widowed);
+		widowed.setFocusPainted(false);
+		add(widowed);	
 		
 		ButtonGroup maritalgroup = new ButtonGroup();
 		maritalgroup.add(widowed);
