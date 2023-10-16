@@ -160,6 +160,9 @@ public class SignUpOne extends JFrame {
 				
 		getContentPane().setBackground(Color.WHITE);
 		
+		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("4305512.png"));
+		setIconImage(image);
+		
 		setSize(850, 800);
 		setVisible(true);
 		setLocation(350, 10);
