@@ -163,9 +163,9 @@ public class SignUpOne extends JFrame {
 		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("4305512.png"));
 		setIconImage(image);
 		
-		setSize(850, 800);
+		setSize(800, 500);
 		setVisible(true);
-		setLocation(350, 10);
+		setLocation(250, 90);
 	}
 
 	public static void main(String[] args) {
