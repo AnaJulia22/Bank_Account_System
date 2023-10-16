@@ -21,6 +21,7 @@ public class Login extends JFrame implements ActionListener{
 		setTitle("ATM");
 		setLayout(null);
 		
+		
 		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/transferir.png"));
 		i1.setImage(i1.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 		label = new JLabel(i1); 
@@ -74,12 +75,15 @@ public class Login extends JFrame implements ActionListener{
 		add(signUp);
 		
 		getContentPane().setBackground(Color.WHITE);		
-		setSize(800, 480);
+		setSize(800, 500);
+		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("4305512.png"));
+		setIconImage(image);
+		
 		setVisible(true);
-		setLocation(350, 200);
+		setLocation(250, 90);
 		
 	}
-
+	
 	public static void main(String[] args) {
 		new Login();
 	}
