@@ -15,7 +15,7 @@ public class SignUpOne extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	JTextField nameTextField, fnameTextField, eAddressTextField, addressTextField, cityTextField, stateTextField, pinTextField;
-	JButton next, clear;
+	JButton next, clear, back;
 	JRadioButton male, female, married, unmarried, widowed;
 	JDateChooser dateChooser;
 	ButtonGroup genderGroup, maritalgroup;
@@ -159,6 +159,15 @@ public class SignUpOne extends JFrame implements ActionListener{
 		pinTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(pinTextField);
 		
+		back = new JButton("BACK");
+		back.setBackground(Color.BLACK);
+		back.setForeground(Color.WHITE);
+		back.setFont(new Font("Raleway", Font.BOLD, 14));
+		back.setBounds(340, 560, 80, 30);
+		back.setFocusPainted(false);
+		back.addActionListener(this);
+		add(back);
+				
 		clear = new JButton("CLEAR");
 		clear.setBounds(430, 560, 80, 30);
 		clear.setBackground(Color.BLACK);
@@ -167,14 +176,14 @@ public class SignUpOne extends JFrame implements ActionListener{
 		clear.addActionListener(this);
 		add(clear);
 		
-		next = new JButton("Next");
+		next = new JButton("NEXT");
 		next.setBackground(Color.BLACK);
 		next.setForeground(Color.WHITE);
 		next.setFont(new Font("Raleway", Font.BOLD, 14));
 		next.setBounds(520, 560, 80, 30);
 		next.setFocusPainted(false);
 		next.addActionListener(this);
-		add(next);
+		add(next);		
 				
 		getContentPane().setBackground(Color.WHITE);
 		
@@ -220,6 +229,7 @@ public class SignUpOne extends JFrame implements ActionListener{
 		String pin = pinTextField.getText();
 		
 		if (e.getSource() == clear) {
+			
 			nameTextField.setText("");
 			fnameTextField.setText("");
 			eAddressTextField.setText(""); 
@@ -230,27 +240,33 @@ public class SignUpOne extends JFrame implements ActionListener{
 			genderGroup.clearSelection();
 			maritalgroup.clearSelection();
 			dateChooser.setDate(null);
+			
 		} else if(e.getSource() == next) {
 			
-		}
-		
-		try {
-			
-			if(name.equals("")) {
-				JOptionPane.showMessageDialog(null,  "Name is required");
-			}else {
-				Conn c = new Conn();
-				String query = "Insert into signup values ('"+formNo+"', '"+name+"', '"+fName+"',"
-														     + " '"+dob+"', '"+gender+"', '"+email+"',"
-														     + " '"+marital+"', '"+address+"', '"+city+"',"
-														     + " '"+state+"', '"+pin+"')";
-				c.s.executeUpdate(query);
+			try {
+
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null, "Name is required");
+				} else {
+					Conn c = new Conn();
+					String query = "Insert into signup values ('" + formNo + "', '" + name + "', '" + fName + "'," + " '"
+																  + dob + "', '" + gender + "', '" + email + "'," + " '"
+																  + marital + "', '" + address + "', '"+ city + "'," + " '"
+																  + "'" + state + "', '" + pin + "')";
+					c.s.executeUpdate(query);
+				}
+
+			} catch (Exception e1) {
+				System.out.println(e1);
 			}
 			
-		} catch (Exception e1) {
-			System.out.println(e1);
-		}
-		
+		} else if(e.getSource() == back) {
+			
+			setVisible(false);
+			new Login().setVisible(true);
+			
+		}		
+
 	}
 
 }
