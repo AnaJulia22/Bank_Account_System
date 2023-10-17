@@ -254,6 +254,8 @@ public class SignUpOne extends JFrame implements ActionListener{
 																  + marital + "', '" + address + "', '"+ city + "'," + " '"
 																  + "'" + state + "', '" + pin + "')";
 					c.s.executeUpdate(query);
+					setVisible(false);
+					new SignUpTwo().setVisible(true);
 				}
 
 			} catch (Exception e1) {
