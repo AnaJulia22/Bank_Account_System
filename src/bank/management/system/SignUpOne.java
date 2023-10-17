@@ -1,20 +1,10 @@
 package bank.management.system;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.Random;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import com.toedter.calendar.JDateChooser;
 
@@ -25,9 +15,10 @@ public class SignUpOne extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	JTextField nameTextField, fnameTextField, eAddressTextField, addressTextField, cityTextField, stateTextField, pinTextField;
-	JButton next;
+	JButton next, clear;
 	JRadioButton male, female, married, unmarried, widowed;
 	JDateChooser dateChooser;
+	ButtonGroup genderGroup, maritalgroup;
 	long random;
 	
 	SignUpOne(){
@@ -91,7 +82,7 @@ public class SignUpOne extends JFrame implements ActionListener{
 		female.setFocusPainted(false);
 		add(female);
 		
-		ButtonGroup genderGroup = new ButtonGroup();
+		genderGroup = new ButtonGroup();
 		genderGroup.add(female);
 		genderGroup.add(male);
 		
@@ -127,7 +118,7 @@ public class SignUpOne extends JFrame implements ActionListener{
 		widowed.setFocusPainted(false);
 		add(widowed);	
 		
-		ButtonGroup maritalgroup = new ButtonGroup();
+		maritalgroup = new ButtonGroup();
 		maritalgroup.add(widowed);
 		maritalgroup.add(unmarried);
 		maritalgroup.add(married);
@@ -168,6 +159,14 @@ public class SignUpOne extends JFrame implements ActionListener{
 		pinTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(pinTextField);
 		
+		clear = new JButton("CLEAR");
+		clear.setBounds(430, 560, 80, 30);
+		clear.setBackground(Color.BLACK);
+		clear.setForeground(Color.WHITE);
+		clear.setFocusPainted(false);
+		clear.addActionListener(this);
+		add(clear);
+		
 		next = new JButton("Next");
 		next.setBackground(Color.BLACK);
 		next.setForeground(Color.WHITE);
@@ -182,9 +181,9 @@ public class SignUpOne extends JFrame implements ActionListener{
 		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("4305512.png"));
 		setIconImage(image);
 		
-		setSize(800, 500);
+		setSize(800, 800);
 		setVisible(true);
-		setLocation(250, 90);
+		setLocation(250, 20);
 	}
 
 	public static void main(String[] args) {
@@ -219,6 +218,21 @@ public class SignUpOne extends JFrame implements ActionListener{
 		String city = cityTextField.getText();
 		String state = stateTextField.getText();
 		String pin = pinTextField.getText();
+		
+		if (e.getSource() == clear) {
+			nameTextField.setText("");
+			fnameTextField.setText("");
+			eAddressTextField.setText(""); 
+			addressTextField.setText(""); 
+			cityTextField.setText(""); 
+			stateTextField.setText("");
+			pinTextField.setText("");
+			genderGroup.clearSelection();
+			maritalgroup.clearSelection();
+			dateChooser.setDate(null);
+		} else if(e.getSource() == next) {
+			
+		}
 		
 		try {
 			
