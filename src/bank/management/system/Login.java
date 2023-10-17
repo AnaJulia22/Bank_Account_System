@@ -57,6 +57,7 @@ public class Login extends JFrame implements ActionListener{
 		login.setBounds(250, 250, 110, 30);
 		login.setBackground(Color.BLACK);
 		login.setForeground(Color.WHITE);
+		login.setFocusPainted(false);
 		login.addActionListener(this);
 		add(login);
 		
@@ -64,6 +65,7 @@ public class Login extends JFrame implements ActionListener{
 		clear.setBounds(390, 250, 110, 30);
 		clear.setBackground(Color.BLACK);
 		clear.setForeground(Color.WHITE);
+		clear.setFocusPainted(false);
 		clear.addActionListener(this);
 		add(clear);
 		
@@ -71,6 +73,7 @@ public class Login extends JFrame implements ActionListener{
 		signUp.setBounds(250, 300, 250, 30);
 		signUp.setBackground(Color.BLACK);
 		signUp.setForeground(Color.WHITE);
+		signUp.setFocusPainted(false);
 		signUp.addActionListener(this);
 		add(signUp);
 		
