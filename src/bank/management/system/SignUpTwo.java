@@ -12,13 +12,19 @@ public class SignUpTwo extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	long random;
 	JButton next, clear, back;
 	JComboBox<String> categoryField, incomeField, educationField, occupField;
 	JRadioButton yes, no, yes2, no2;
 	ButtonGroup seniorButton, existing_accountButton;
+	JTextField panField;
+	String formNo;
 	
 
-	SignUpTwo(){
+	SignUpTwo(String formNo){
+		
+		this.formNo = formNo;
+		
 		setLayout(null);
 		setTitle("NEW ACCOUNT APPLICATION FORM");
 		getContentPane().setBackground(Color.WHITE);
@@ -48,8 +54,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		incomeField.setBounds(300, 210, 300, 25);
 		incomeField.setFont(new Font("Raleway", Font.BOLD, 14));
 		incomeField.setBackground(Color.WHITE);
-		add(incomeField);
-		
+		add(incomeField);		
 		
 		JLabel educational = new JLabel("Educational:");
 		educational.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -77,7 +82,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		panNo.setFont(new Font("Raleway", Font.BOLD, 20));
 		panNo.setBounds(100, 340, 400, 30);
 		add(panNo);	
-		JTextField panField = new JTextField();
+		panField = new JTextField();
 		panField.setBounds(300, 345, 300, 25);
 		panField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(panField);
@@ -154,19 +159,63 @@ public class SignUpTwo extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == clear) {
+		
+		String formNo = this.formNo;
+		String category = (String) categoryField.getSelectedItem();
+		String income = (String) incomeField.getSelectedItem();
+		String education = (String) educationField.getSelectedItem();
+		String occupation = (String) occupField.getSelectedItem();
+		String pan = panField.getText();
+		String seniorCiti = null;
+		
+		if(yes.isSelected()) {
+			seniorCiti = "Yes";
+		}else if(no.isSelected()) {
+			seniorCiti = "No";
+		}
+		
+		String existingAccount = null;
+		
+		if(yes2.isSelected()) {
+			existingAccount = "Yes";
+		}else if(no2.isSelected()) {
+			existingAccount = "No";
+		}
+		
+		if(e.getSource() == next) {
+			
+			try {
 
+				Conn c = new Conn();
+				String query = "Insert into signuptwo values ('" + formNo + "', '" + category + "', '" + income + "',"
+						+ " '" + education + "', '" + occupation + "', '" + pan + "'," + " '" + seniorCiti + "', '"
+						+ existingAccount + "')";
+				c.s.executeUpdate(query);			
+
+			} catch (Exception e1) {
+				System.out.println(e1);
+			}
+			
+		} else if (e.getSource() == clear) {			
+			
+			categoryField.removeAllItems();
+			incomeField.removeAllItems();
+			educationField.removeAllItems();
+			occupField.removeAllItems();
+			panField.setText("");
+			seniorButton.clearSelection();
+			existing_accountButton.clearSelection();
 
 		} else if (e.getSource() == back) {
 
 			setVisible(false);
 			new SignUpOne().setVisible(true);
-
-		}
+		} 		
+		
 	}
 
 	public static void main(String[] args) {
-		new SignUpTwo();
+		new SignUpTwo("");
 
 	}
 
