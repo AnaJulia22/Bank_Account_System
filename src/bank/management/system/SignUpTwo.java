@@ -13,6 +13,9 @@ public class SignUpTwo extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	JButton next, clear, back;
+	JComboBox<String> categoryField, incomeField, educationField, occupField;
+	JRadioButton yes, no, yes2, no2;
+	ButtonGroup seniorButton, existing_accountButton;
 	
 
 	SignUpTwo(){
@@ -30,7 +33,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		category.setBounds(100, 155, 400, 30);
 		add(category);		
 		String valCategory[] = {"General", "OBC", "SC", "ST", "Other"};
-		JComboBox<String> categoryField = new JComboBox<>(valCategory);
+		categoryField = new JComboBox<>(valCategory);
 		categoryField.setBounds(300, 160, 300, 25);
 		categoryField.setFont(new Font( "Arial", Font.BOLD, 14));
 		categoryField.setBackground(Color.WHITE);
@@ -41,7 +44,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		income.setBounds(100, 205, 400, 30);
 		add(income);		
 		String valIncome[] = {"Null", "< 150,000", "< 250,000", "< 500,000", "Up to 1,000,000"};
-		JComboBox<String> incomeField = new JComboBox<>(valIncome);
+		incomeField = new JComboBox<>(valIncome);
 		incomeField.setBounds(300, 210, 300, 25);
 		incomeField.setFont(new Font("Raleway", Font.BOLD, 14));
 		incomeField.setBackground(Color.WHITE);
@@ -53,7 +56,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		educational.setBounds(100, 250, 400, 30);
 		add(educational);		
 		String valEducation[] = {"Non-graduation", "Graduation", "Post-graduation", "Doctorate", "Other"};
-		JComboBox<String> educationField = new JComboBox<String>(valEducation);
+		educationField = new JComboBox<String>(valEducation);
 		educationField.setBounds(300, 255, 300, 25);
 		educationField.setFont(new Font( "Arial", Font.BOLD, 14));
 		educationField.setBackground(Color.WHITE);
@@ -64,7 +67,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		occupation.setBounds(100, 295, 400, 30);
 		add(occupation);
 		String valOccup[] = {"Salaried", "Self-employed", "Business", "Student", "Retired", "Unemployed"};
-		JComboBox<String> occupField = new JComboBox<String>(valOccup);
+		occupField = new JComboBox<String>(valOccup);
 		occupField.setBounds(300, 300, 300, 25);
 		occupField.setFont(new Font( "Arial", Font.BOLD, 14));
 		occupField.setBackground(Color.WHITE);
@@ -83,17 +86,17 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		seniorCitizen.setFont(new Font("Raleway", Font.BOLD, 20));
 		seniorCitizen.setBounds(100, 385, 400, 30);
 		add(seniorCitizen);
-		JRadioButton yes = new JRadioButton("Yes");
+		yes = new JRadioButton("Yes");
 		yes.setBounds(300, 390, 100, 25);
 		yes.setFont(new Font( "Arial", Font.BOLD, 14));
 		yes.setBackground(Color.WHITE);
 		add(yes);
-		JRadioButton no = new JRadioButton("No");
+		no = new JRadioButton("No");
 		no.setBounds(400, 390, 100, 25);
 		no.setFont(new Font( "Arial", Font.BOLD, 14));
 		no.setBackground(Color.WHITE);
 		add(no);
-		ButtonGroup seniorButton = new ButtonGroup();
+		seniorButton = new ButtonGroup();
 		seniorButton.add(no);
 		seniorButton.add(yes);
 		
@@ -101,19 +104,19 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		existing_account.setFont(new Font("Raleway", Font.BOLD, 20));
 		existing_account.setBounds(100, 430, 400, 30);
 		add(existing_account);
-		JRadioButton eyes = new JRadioButton("Yes");
-		eyes.setBounds(300, 435, 100, 25);
-		eyes.setFont(new Font( "Arial", Font.BOLD, 14));
-		eyes.setBackground(Color.WHITE);
-		add(eyes);
-		JRadioButton eno = new JRadioButton("No");
-		eno.setBounds(400, 435, 100, 25);
-		eno.setFont(new Font( "Arial", Font.BOLD, 14));
-		eno.setBackground(Color.WHITE);
-		add(eno);
-		ButtonGroup eseniorButton = new ButtonGroup();
-		eseniorButton.add(eno);
-		eseniorButton.add(eyes);
+		yes2 = new JRadioButton("Yes");
+		yes2.setBounds(300, 435, 100, 25);
+		yes2.setFont(new Font( "Arial", Font.BOLD, 14));
+		yes2.setBackground(Color.WHITE);
+		add(yes2);
+		no2 = new JRadioButton("No");
+		no2.setBounds(400, 435, 100, 25);
+		no2.setFont(new Font( "Arial", Font.BOLD, 14));
+		no2.setBackground(Color.WHITE);
+		add(no2);
+		existing_accountButton = new ButtonGroup();
+		existing_accountButton.add(no2);
+		existing_accountButton.add(yes2);
 		
 		back = new JButton("BACK");
 		back.setBackground(Color.BLACK);
