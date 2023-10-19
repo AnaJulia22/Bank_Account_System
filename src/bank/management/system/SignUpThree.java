@@ -13,8 +13,8 @@ public class SignUpThree extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	JRadioButton savingAccount, currentAccount, fixedDepositAccount, recurringDepositAccount;
-	ButtonGroup accountTypeGroup;
+	JRadioButton savingAccount, currentAccount, fixedDepositAccount, recurringDepositAccount, atmCard, mobileBanking, chequeBook, internetBanking, email_smsAlerts, eStatement;
+	ButtonGroup accountTypeGroup, serviceRequiredGroup;
 
 	public SignUpThree() {
 		setLayout(null);
@@ -64,12 +64,78 @@ public class SignUpThree extends JFrame implements ActionListener{
 		accountTypeGroup.add(recurringDepositAccount);
 		accountTypeGroup.add(savingAccount);
 		
-		JLabel cardNo = new JLabel("Card Number");
+		JLabel cardNo = new JLabel("Card Number:");
 		cardNo.setFont(new Font("Raleway", Font.BOLD, 18));
 		cardNo.setBounds(100, 230, 400, 30);
 		add(cardNo);
+		JLabel infoCard = new JLabel("Your 16 digit card number");
+		infoCard.setFont(new Font("Raleway", Font.BOLD, 10));
+		infoCard.setBounds(100, 250, 200, 20);
+		add(infoCard);
 		
+		JLabel pin = new JLabel("PIN:");
+		pin.setFont(new Font("Raleway", Font.BOLD, 18));
+		pin.setBounds(100, 290, 400, 30);
+		add(pin);
+		JLabel infopin = new JLabel("Your 4 digit password");
+		infopin.setFont(new Font("Raleway", Font.BOLD, 10));
+		infopin.setBounds(100, 310, 200, 20);
+		add(infopin);
 		
+		JLabel serviceRequired = new JLabel("Services required");
+		serviceRequired.setFont(new Font("Raleway", Font.BOLD, 18));
+		serviceRequired.setBounds(100, 350, 400, 30);
+		add(serviceRequired);
+		
+		atmCard = new JRadioButton("ATM card");
+		atmCard.setBounds(100, 390, 150, 20);
+		atmCard.setFont(new Font( "Arial", Font.BOLD, 14));
+		atmCard.setBackground(Color.WHITE); 
+		atmCard.setFocusPainted(false);
+		add(atmCard);
+		
+		mobileBanking = new JRadioButton("Mobile banking");
+		mobileBanking.setBounds(100, 420, 150, 20);
+		mobileBanking.setFont(new Font( "Arial", Font.BOLD, 14));
+		mobileBanking.setBackground(Color.WHITE); 
+		mobileBanking.setFocusPainted(false);
+		add(mobileBanking);
+		
+		chequeBook = new JRadioButton("Cheque book");
+		chequeBook.setBounds(100, 450, 200, 20);
+		chequeBook.setFont(new Font( "Arial", Font.BOLD, 14));
+		chequeBook.setBackground(Color.WHITE); 
+		chequeBook.setFocusPainted(false);
+		add(chequeBook);
+		
+		internetBanking = new JRadioButton("Internet banking");
+		internetBanking.setBounds(300, 390, 300, 20);
+		internetBanking.setFont(new Font( "Arial", Font.BOLD, 14));
+		internetBanking.setBackground(Color.WHITE); 
+		internetBanking.setFocusPainted(false);
+		add(internetBanking);
+		
+		email_smsAlerts = new JRadioButton("Email and SMS alerts");
+		email_smsAlerts.setBounds(300, 420, 300, 20);
+		email_smsAlerts.setFont(new Font( "Arial", Font.BOLD, 14));
+		email_smsAlerts.setBackground(Color.WHITE); 
+		email_smsAlerts.setFocusPainted(false);
+		add(email_smsAlerts);
+		
+		eStatement = new JRadioButton("E-Statement");
+		eStatement.setBounds(300, 450, 200, 20);
+		eStatement.setFont(new Font( "Arial", Font.BOLD, 14));
+		eStatement.setBackground(Color.WHITE); 
+		eStatement.setFocusPainted(false);
+		add(eStatement);
+		
+		serviceRequiredGroup = new ButtonGroup();
+		serviceRequiredGroup.add(atmCard);
+		serviceRequiredGroup.add(mobileBanking);
+		serviceRequiredGroup.add(chequeBook);
+		serviceRequiredGroup.add(internetBanking);
+		serviceRequiredGroup.add(email_smsAlerts);
+		serviceRequiredGroup.add(eStatement);
 		
 		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("4305512.png"));
 		setIconImage(image);
