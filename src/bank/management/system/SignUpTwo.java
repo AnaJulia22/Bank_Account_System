@@ -12,7 +12,6 @@ public class SignUpTwo extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	long random;
 	JButton next, clear, back;
 	JComboBox<String> categoryField, incomeField, educationField, occupField;
 	JRadioButton yes, no, yes2, no2;
