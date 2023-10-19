@@ -94,11 +94,13 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		yes.setBounds(300, 390, 100, 25);
 		yes.setFont(new Font( "Arial", Font.BOLD, 14));
 		yes.setBackground(Color.WHITE);
+		yes.setFocusPainted(false);
 		add(yes);
 		no = new JRadioButton("No");
 		no.setBounds(400, 390, 100, 25);
 		no.setFont(new Font( "Arial", Font.BOLD, 14));
 		no.setBackground(Color.WHITE);
+		no.setFocusPainted(false);
 		add(no);
 		seniorButton = new ButtonGroup();
 		seniorButton.add(no);
@@ -112,11 +114,13 @@ public class SignUpTwo extends JFrame implements ActionListener {
 		yes2.setBounds(300, 435, 100, 25);
 		yes2.setFont(new Font( "Arial", Font.BOLD, 14));
 		yes2.setBackground(Color.WHITE);
+		yes2.setFocusPainted(false);
 		add(yes2);
 		no2 = new JRadioButton("No");
 		no2.setBounds(400, 435, 100, 25);
 		no2.setFont(new Font( "Arial", Font.BOLD, 14));
 		no2.setBackground(Color.WHITE);
+		no2.setFocusPainted(false);
 		add(no2);
 		existing_accountButton = new ButtonGroup();
 		existing_accountButton.add(no2);
