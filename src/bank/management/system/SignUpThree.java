@@ -191,29 +191,63 @@ public class SignUpThree extends JFrame implements ActionListener{
 			}
 			
 			String facility = "";
+			
 			if (atmCard.isSelected()) {
 				
 				facility = facility + "ATM card";
 
-			} else if (mobileBanking.isSelected()) {
-
-				facility =  facility + "Mobile banking";
+			} 
+			
+			if (mobileBanking.isSelected()) {
 				
-			} else if (internetBanking.isSelected()) {
+				if (facility.equals("")) {
 
-				facility =  facility + "Internet banking";
+					facility =  facility + "Mobile banking";
+				} else {
+					facility =  facility + ", Mobile banking";
+				}
+				
+			} 
+			
+			if (internetBanking.isSelected()) {
+				
+				if (facility.equals("")) {
 
-			} else if (chequeBook.isSelected()) {
+					facility =  facility + "Internet banking";
+				} else {
+					facility =  facility + ", Internet banking";
+				}			
 
-				facility =  facility + "Cheque box";
+			} 
+			
+			if (chequeBook.isSelected()) {
+				
+				if (facility.equals("")) {
 
-			} else if (email_smsAlerts.isSelected()) {
+					facility =  facility + "Cheque box";
+				} else {
+					facility =  facility + ", Cheque box";
+				}
+				
+			} 
+			if (email_smsAlerts.isSelected()) {
+				
+				if (facility.equals("")) {
 
-				facility =  facility + "Email and SMS alerts";
+					facility =  facility + "Email and SMS alerts";
+				} else {
+					facility =  facility + ", Email and SMS alerts";
+				}				
 
-			} else if (eStatement.isSelected()) {
+			}
+			if (eStatement.isSelected()) {
+				
+				if (facility.equals("")) {
 
-				facility =  facility + "E-statement";
+					facility =  facility + "E-statement";
+				} else {
+					facility =  facility + ", E-statement";
+				}				
 
 			} 
 			
