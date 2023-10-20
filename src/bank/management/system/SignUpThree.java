@@ -261,6 +261,8 @@ public class SignUpThree extends JFrame implements ActionListener{
 				
 				String query = "Insert into signupthree values ('" + formNo2 + "','" + accountType + "','" + cardNumber + "','" + pin + "', '" + facility + "')";
 				c.s.executeUpdate(query);	
+				String query2 = "Insert into login values ('" + formNo2 + "','" + cardNumber + "','" + pin + "')";
+				c.s.executeUpdate(query2);
 				
 				JOptionPane.showMessageDialog(null, "Card number: " + cardNumber + "\n Pin: " + pin);
 				
