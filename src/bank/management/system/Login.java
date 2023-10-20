@@ -2,6 +2,7 @@ package bank.management.system;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 
 import javax.swing.*;
 
@@ -11,13 +12,15 @@ public class Login extends JFrame implements ActionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JButton login, signUp, clear;
+	JButton signIn, signUp, clear;
 	JTextField cardTextField;
 	JPasswordField pinTextField;
 	JLabel label, cardNo, text, pin;
+	
 
 	Login(){
 		
+				
 		setTitle("ATM");
 		setLayout(null);
 		
@@ -53,13 +56,13 @@ public class Login extends JFrame implements ActionListener{
 		pinTextField.setFont(new Font( "Arial", Font.BOLD, 14));
 		add(pinTextField);
 		
-		login = new JButton("SIGN IN");
-		login.setBounds(250, 250, 110, 30);
-		login.setBackground(Color.BLACK);
-		login.setForeground(Color.WHITE);
-		login.setFocusPainted(false);
-		login.addActionListener(this);
-		add(login);
+		signIn = new JButton("SIGN IN");
+		signIn.setBounds(250, 250, 110, 30);
+		signIn.setBackground(Color.BLACK);
+		signIn.setForeground(Color.WHITE);
+		signIn.setFocusPainted(false);
+		signIn.addActionListener(this);
+		add(signIn);
 		
 		clear = new JButton("CLEAR");
 		clear.setBounds(390, 250, 110, 30);
@@ -94,7 +97,47 @@ public class Login extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getSource() == login) {
+		char[] passwordChars = pinTextField.getPassword();
+		String password = new String(passwordChars);
+		String cardNo = cardTextField.getText();
+		
+		if (e.getSource() == signIn) {
+			
+			Conn c = new Conn();
+			ResultSet rs;
+			try {
+				String queryCheck = "SELECT * from login WHERE cardNumber = '" + cardNo + "' and pin = '" + password + "'";
+
+				
+				rs = c.s.executeQuery(queryCheck);
+		        
+		        if (rs.next()) {
+		        	
+		        } else {
+		        	
+					if (cardNo.isEmpty() && password.isEmpty()) {
+						
+						JOptionPane.showMessageDialog(null, "Invalid credentials");
+						
+					} else if(cardNo.isEmpty()){
+						
+						JOptionPane.showMessageDialog(null, "Invalid card Number");
+						
+					} else if (password.isEmpty()) {
+						
+						JOptionPane.showMessageDialog(null, "Invalid PIN");
+						
+					}
+		        			        	
+		        }
+
+		        rs.close();
+		        
+		    } catch (SQLException e1) {
+		    	
+		        e1.printStackTrace();
+		    }			
+			
 			
 		} else if (e.getSource() == signUp) {
 			setVisible(false);
