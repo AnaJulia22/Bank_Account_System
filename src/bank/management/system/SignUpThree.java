@@ -175,7 +175,7 @@ public class SignUpThree extends JFrame implements ActionListener{
 			String formNo2 = this.formNo;
 			
 			Random ran = new Random();
-			String cardNumber = ""+ Math.abs((ran.nextLong() % 90000000L)) + 5040936000000000L;
+			String cardNumber = ""+ Math.abs((ran.nextLong() % 900000L)) + 504093600L;
 			String pin = ""+Math.abs((ran.nextLong() % 9000L) + 1000L);;
 			
 			String accountType = null;
@@ -252,6 +252,7 @@ public class SignUpThree extends JFrame implements ActionListener{
 			} 
 			
 			try {
+				
 				if(accountType.equals("")) {
 					JOptionPane.showMessageDialog(null, "Account type is required");
 				} else {
@@ -260,6 +261,9 @@ public class SignUpThree extends JFrame implements ActionListener{
 				
 				String query = "Insert into signupthree values ('" + formNo2 + "','" + accountType + "','" + cardNumber + "','" + pin + "', '" + facility + "')";
 				c.s.executeUpdate(query);	
+				
+				JOptionPane.showMessageDialog(null, "Card number: " + cardNumber + "\n Pin: " + pin);
+				
 				}
 
 			} catch (Exception e1) {
