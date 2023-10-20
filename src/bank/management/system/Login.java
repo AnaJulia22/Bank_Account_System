@@ -92,8 +92,9 @@ public class Login extends JFrame implements ActionListener{
 	
 	public static void main(String[] args) {
 		new Login();
+	
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -106,29 +107,34 @@ public class Login extends JFrame implements ActionListener{
 			Conn c = new Conn();
 			ResultSet rs;
 			try {
-				String queryCheck = "SELECT * from login WHERE cardNumber = '" + cardNo + "' and pin = '" + password + "'";
-
-				
+				String queryCheck = "SELECT * from login WHERE cardNumber = '" + cardNo + "' and pin = '" + password + "'";				
 				rs = c.s.executeQuery(queryCheck);
 		        
 		        if (rs.next()) {
 		        	
 		        } else {
 		        	
-					if (cardNo.isEmpty() && password.isEmpty()) {
+		        	queryCheck = "SELECT * from login WHERE cardNumber = '" + cardNo + "'";		        	
+		        	rs = c.s.executeQuery(queryCheck);
+		        	
+		        	if (rs.next()) {		        		
+		        	
+		        		JOptionPane.showMessageDialog(null, "Invalid PIN");
+		        		
+			        } else {
+
+			        	queryCheck = "SELECT * from login WHERE  pin = '" + password + "'";
+			        	rs = c.s.executeQuery(queryCheck);
+			        	
+			        	if (rs.next()) {
+			        		
+			        		JOptionPane.showMessageDialog(null, "Invalid card Number");
+			        		
+				        } else {
 						
-						JOptionPane.showMessageDialog(null, "Invalid credentials");
-						
-					} else if(cardNo.isEmpty()){
-						
-						JOptionPane.showMessageDialog(null, "Invalid card Number");
-						
-					} else if (password.isEmpty()) {
-						
-						JOptionPane.showMessageDialog(null, "Invalid PIN");
-						
-					}
-		        			        	
+				        	JOptionPane.showMessageDialog(null, "Invalid credentials");
+				        }
+			        }
 		        }
 
 		        rs.close();
@@ -147,6 +153,7 @@ public class Login extends JFrame implements ActionListener{
 			cardTextField.setText("");
 			pinTextField.setText("");
 		}
+		
 	}
 
 }
