@@ -3,6 +3,7 @@ package bank.management.system;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 import javax.swing.*;
 
@@ -16,8 +17,12 @@ public class SignUpThree extends JFrame implements ActionListener{
 	JRadioButton savingAccount, currentAccount, fixedDepositAccount, recurringDepositAccount;
 	ButtonGroup accountTypeGroup, serviceRequiredGroup;
 	JCheckBox atmCard, mobileBanking, chequeBook, internetBanking, email_smsAlerts, eStatement;
+	JButton back, cancel, submit;
+	String formNo;
+	long random;
 
-	public SignUpThree() {
+	public SignUpThree(String formNo) {
+		this.formNo = formNo;
 		setLayout(null);
 		getContentPane().setBackground(Color.WHITE);
 		
@@ -113,14 +118,14 @@ public class SignUpThree extends JFrame implements ActionListener{
 		chequeBook = new JCheckBox("Cheque book");
 		chequeBook.setBounds(100, 450, 200, 20);
 		chequeBook.setFont(new Font( "Arial", Font.BOLD, 14));
-		chequeBook.setBackground(Color.WHITE); 
+		chequeBook.setBackground(Color.WHITE);
 		chequeBook.setFocusPainted(false);
 		add(chequeBook);
 		
 		internetBanking = new JCheckBox("Internet banking");
 		internetBanking.setBounds(300, 390, 300, 20);
 		internetBanking.setFont(new Font( "Arial", Font.BOLD, 14));
-		internetBanking.setBackground(Color.WHITE); 
+		internetBanking.setBackground(Color.WHITE);
 		internetBanking.setFocusPainted(false);
 		add(internetBanking);
 		
@@ -134,9 +139,26 @@ public class SignUpThree extends JFrame implements ActionListener{
 		eStatement = new JCheckBox("E-Statement");
 		eStatement.setBounds(300, 450, 200, 20);
 		eStatement.setFont(new Font( "Arial", Font.BOLD, 14));
-		eStatement.setBackground(Color.WHITE); 
+		eStatement.setBackground(Color.WHITE);
 		eStatement.setFocusPainted(false);
 		add(eStatement);
+				
+		cancel = new JButton("CANCEL");
+		cancel.setBounds(250, 480, 100, 30);
+		cancel.setBackground(Color.BLACK);
+		cancel.setForeground(Color.WHITE);
+		cancel.setFocusPainted(false);
+		cancel.addActionListener(this);
+		add(cancel);
+		
+		submit = new JButton("SUBMIT");
+		submit.setBackground(Color.BLACK);
+		submit.setForeground(Color.WHITE);
+		submit.setFont(new Font("Raleway", Font.BOLD, 14));
+		submit.setBounds(370, 480, 100, 30);
+		submit.setFocusPainted(false);
+		submit.addActionListener(this);
+		add(submit);
 				
 		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("4305512.png"));
 		setIconImage(image);
@@ -146,15 +168,82 @@ public class SignUpThree extends JFrame implements ActionListener{
 		setLocation(250, 20);
 	}
 
-	public static void main(String[] args) {
-		new SignUpThree();
-
-	}
-
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {	
 		
+		if(e.getSource() == submit) {
+			String formNo2 = this.formNo;
+			
+			Random ran = new Random();
+			String cardNumber = ""+ Math.abs((ran.nextLong() % 90000000L)) + 5040936000000000L;
+			String pin = ""+Math.abs((ran.nextLong() % 9000L) + 1000L);;
+			
+			String accountType = null;
+			
+			if(savingAccount.isSelected()) {
+				accountType = "Saving account";
+			}else if(currentAccount.isSelected()) {
+				accountType = "Current account";
+			}else if(fixedDepositAccount.isSelected()) {
+				accountType = "Fixed deposit account";
+			}else if(recurringDepositAccount.isSelected()) {
+				accountType = "Recurring deposit account";
+			}
+			
+			String facility = "";
+			if (atmCard.isSelected()) {
+				
+				facility = facility + "ATM card";
+
+			} else if (mobileBanking.isSelected()) {
+
+				facility =  facility + "Mobile banking";
+				
+			} else if (internetBanking.isSelected()) {
+
+				facility =  facility + "Internet banking";
+
+			} else if (chequeBook.isSelected()) {
+
+				facility =  facility + "Cheque box";
+
+			} else if (email_smsAlerts.isSelected()) {
+
+				facility =  facility + "Email and SMS alerts";
+
+			} else if (eStatement.isSelected()) {
+
+				facility =  facility + "E-statement";
+
+			} 
+			
+			try {
+				if(accountType.equals("")) {
+					JOptionPane.showMessageDialog(null, "Account type is required");
+				} else {
+
+				Conn c = new Conn();
+				
+				String query = "Insert into signupthree values ('" + formNo2 + "','" + accountType + "','" + cardNumber + "','" + pin + "', '" + facility + "')";
+				c.s.executeUpdate(query);	
+				}
+
+			} catch (Exception e1) {
+				System.out.println(e1);
+			}
+			
+		} else if (e.getSource() == cancel) {			
+			
+			setVisible(false);
+			new Login().setVisible(true);
+
+		}		
+		
+	}
+	
+	public static void main(String[] args) {
+		new SignUpThree("");
+
 	}
 
 }

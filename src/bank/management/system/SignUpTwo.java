@@ -163,7 +163,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String formNo = this.formNo;
+		String formNo1 = this.formNo;
 		String category = (String) categoryField.getSelectedItem();
 		String income = (String) incomeField.getSelectedItem();
 		String education = (String) educationField.getSelectedItem();
@@ -190,10 +190,13 @@ public class SignUpTwo extends JFrame implements ActionListener {
 			try {
 
 				Conn c = new Conn();
-				String query = "Insert into signuptwo values ('" + formNo + "', '" + category + "', '" + income + "',"
+				String query = "Insert into signuptwo values ('" + formNo1 + "', '" + category + "', '" + income + "',"
 						+ " '" + education + "', '" + occupation + "', '" + pan + "'," + " '" + seniorCiti + "', '"
 						+ existingAccount + "')";
-				c.s.executeUpdate(query);			
+				c.s.executeUpdate(query);	
+				
+				setVisible(false);
+				new SignUpThree(formNo1).setVisible(true);
 
 			} catch (Exception e1) {
 				System.out.println(e1);
