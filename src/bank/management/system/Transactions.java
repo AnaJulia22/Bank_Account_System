@@ -1,6 +1,7 @@
 package bank.management.system;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.*;
@@ -22,6 +23,16 @@ public class Transactions extends JFrame{
 		JLabel image = new JLabel(i1); 
 		image.setBounds(0, 0, 600, 600);
 		add(image);
+		
+		JLabel text = new JLabel("Please select your transaction");
+		text.setBounds(135, 200, 700, 30);
+		text.setForeground(Color.WHITE);
+		//text.setFont(new Font("System", Font.BOLD, 12));
+		image.add(text);
+		
+		JButton deposit = new JButton("Deposit");
+		deposit.setBounds(120, 276, 120, 22);
+		image.add(deposit);
 		
 		setSize(600, 600);
 		setVisible(true);
