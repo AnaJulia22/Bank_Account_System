@@ -1,8 +1,6 @@
 package bank.management.system;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
+import java.awt.*;
 
 import javax.swing.*;
 
@@ -31,8 +29,16 @@ public class Transactions extends JFrame{
 		image.add(text);
 		
 		JButton deposit = new JButton("Deposit");
-		deposit.setBounds(120, 276, 120, 22);
+		deposit.setBounds(115, 276, 100, 21);
 		image.add(deposit);
+		
+		JButton withdraw = new JButton("Withdraw");
+		withdraw.setBounds(115, 300, 100, 21);
+		image.add(withdraw);
+		
+		JButton fastcash = new JButton("Fast cash");
+		fastcash.setBounds(235, 276, 100, 21);
+		image.add(fastcash);
 		
 		setSize(600, 600);
 		setVisible(true);
