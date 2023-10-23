@@ -1,15 +1,21 @@
 package bank.management.system;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Transactions extends JFrame{
+public class Transactions extends JFrame implements ActionListener{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	JButton deposit, withdraw, fastcash, miniState, pinChange, balanceEnquiry, next;
 
 	Transactions(){
 		
@@ -28,31 +34,31 @@ public class Transactions extends JFrame{
 		text.setFont(new Font("System", Font.BOLD, 16));
 		image.add(text);
 		
-		JButton deposit = new JButton("Deposit");
+		deposit = new JButton("Deposit");
 		deposit.setBounds(150, 370, 140, 24);
 		image.add(deposit);
 		
-		JButton withdraw = new JButton("Cash withdrawal");
+		withdraw = new JButton("Cash withdrawal");
 		withdraw.setBounds(150, 400, 140, 24);
 		image.add(withdraw);
 		
-		JButton fastcash = new JButton("Fast cash");
+		fastcash = new JButton("Fast cash");
 		fastcash.setBounds(310,370, 140, 24);
 		image.add(fastcash);
 		
-		JButton miniState = new JButton("Mini Statement");
+		miniState = new JButton("Mini Statement");
 		miniState.setBounds(310, 400, 140, 24);
 		image.add(miniState);
 		
-		JButton pinChange = new JButton("PIN change");
+		pinChange = new JButton("PIN change");
 		pinChange.setBounds(150, 430, 140, 24);
 		image.add(pinChange);
 		
-		JButton balanceEnquiry = new JButton("Balance enquiry");
+		balanceEnquiry = new JButton("Balance enquiry");
 		balanceEnquiry.setBounds(310, 430, 140, 24);
 		image.add(balanceEnquiry);
 		
-		JButton next = new JButton("NEXT");
+		next = new JButton("NEXT");
 		next.setBounds(310, 460, 140, 24);
 		image.add(next);
 		
@@ -63,6 +69,12 @@ public class Transactions extends JFrame{
 	
 	public static void main(String[] args) {
 		new Transactions();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
