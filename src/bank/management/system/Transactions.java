@@ -15,9 +15,12 @@ public class Transactions extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	JButton deposit, withdraw, fastcash, miniState, pinChange, balanceEnquiry, next;
-
-	Transactions(){
+	JButton deposit, withdraw, fastcash, miniState, pinChange, balanceEnquiry, exit;
+	String pinNumber;
+	
+	Transactions(String pinNumber){
+		
+		this.pinNumber = pinNumber;
 		
 		setLayout(null);
 		getContentPane().setBackground(Color.WHITE);
@@ -36,45 +39,57 @@ public class Transactions extends JFrame implements ActionListener{
 		
 		deposit = new JButton("Deposit");
 		deposit.setBounds(150, 370, 140, 24);
+		deposit.addActionListener(this);
 		image.add(deposit);
 		
 		withdraw = new JButton("Cash withdrawal");
 		withdraw.setBounds(150, 400, 140, 24);
+		withdraw.addActionListener(this);
 		image.add(withdraw);
 		
 		fastcash = new JButton("Fast cash");
 		fastcash.setBounds(310,370, 140, 24);
+		fastcash.addActionListener(this);
 		image.add(fastcash);
 		
 		miniState = new JButton("Mini Statement");
 		miniState.setBounds(310, 400, 140, 24);
+		miniState.addActionListener(this);
 		image.add(miniState);
 		
 		pinChange = new JButton("PIN change");
 		pinChange.setBounds(150, 430, 140, 24);
+		pinChange.addActionListener(this);
 		image.add(pinChange);
 		
 		balanceEnquiry = new JButton("Balance enquiry");
 		balanceEnquiry.setBounds(310, 430, 140, 24);
+		balanceEnquiry.addActionListener(this);
 		image.add(balanceEnquiry);
 		
-		next = new JButton("NEXT");
-		next.setBounds(310, 460, 140, 24);
-		image.add(next);
+		exit = new JButton("EXIT");
+		exit.setBounds(310, 460, 140, 24);
+		exit.addActionListener(this);
+		image.add(exit);
 		
 		setSize(800, 800);
 		setVisible(true);
 		setLocation(300, 0);
 	}
 	
-	public static void main(String[] args) {
-		new Transactions();
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getSource() == exit) {
+			System.exit(0);
+		}
 	}
+	
+	public static void main(String[] args) {
+		new Transactions("");
+	}
+
+	
+		
+	
 
 }

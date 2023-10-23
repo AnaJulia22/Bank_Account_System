@@ -2,6 +2,7 @@ package bank.management.system;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.Visibility;
 import java.sql.*;
 
 import javax.swing.*;
@@ -111,6 +112,9 @@ public class Login extends JFrame implements ActionListener{
 				rs = c.s.executeQuery(queryCheck);
 		        
 		        if (rs.next()) {
+		        	
+		        	setVisible(false);
+		        	new Transactions(password).setVisible(true);
 		        	
 		        } else {
 		        	
