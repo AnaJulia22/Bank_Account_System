@@ -6,7 +6,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Transactions extends JFrame implements ActionListener{
 
@@ -81,6 +84,9 @@ public class Transactions extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == exit) {
 			System.exit(0);
+		}else if (e.getSource() == deposit) {
+			setVisible(false);
+			new Deposit().setVisible(true);
 		}
 	}
 	
