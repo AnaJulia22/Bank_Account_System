@@ -26,9 +26,9 @@ public class Transactions extends JFrame implements ActionListener{
 		getContentPane().setBackground(Color.WHITE);
 		
 		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
-		i1.setImage(i1.getImage().getScaledInstance(800, 800, Image.SCALE_DEFAULT));
+		i1.setImage(i1.getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT));
 		JLabel image = new JLabel(i1); 
-		image.setBounds(0, 0, 800, 800);
+		image.setBounds(0, 0,700, 700);
 		add(image);
 		
 		JLabel text = new JLabel("Please select your transaction");
@@ -72,7 +72,7 @@ public class Transactions extends JFrame implements ActionListener{
 		exit.addActionListener(this);
 		image.add(exit);
 		
-		setSize(800, 800);
+		setSize(700, 700);
 		setVisible(true);
 		setLocation(300, 0);
 	}
