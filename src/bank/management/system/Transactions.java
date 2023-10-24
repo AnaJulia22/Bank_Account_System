@@ -32,43 +32,43 @@ public class Transactions extends JFrame implements ActionListener{
 		add(image);
 		
 		JLabel text = new JLabel("Please select your transaction");
-		text.setBounds(180, 280, 700, 30);
+		text.setBounds(145, 240, 700, 30);
 		text.setForeground(Color.WHITE);
 		text.setFont(new Font("System", Font.BOLD, 16));
 		image.add(text);
 		
 		deposit = new JButton("Deposit");
-		deposit.setBounds(150, 370, 140, 24);
+		deposit.setBounds(130, 323, 130, 24);
 		deposit.addActionListener(this);
 		image.add(deposit);
 		
 		withdraw = new JButton("Cash withdrawal");
-		withdraw.setBounds(150, 400, 140, 24);
+		withdraw.setBounds(130, 350, 130, 24);
 		withdraw.addActionListener(this);
 		image.add(withdraw);
 		
 		fastcash = new JButton("Fast cash");
-		fastcash.setBounds(310,370, 140, 24);
+		fastcash.setBounds(265,323, 130, 24);
 		fastcash.addActionListener(this);
 		image.add(fastcash);
 		
 		miniState = new JButton("Mini Statement");
-		miniState.setBounds(310, 400, 140, 24);
+		miniState.setBounds(265, 350, 130, 24);
 		miniState.addActionListener(this);
 		image.add(miniState);
 		
 		pinChange = new JButton("PIN change");
-		pinChange.setBounds(150, 430, 140, 24);
+		pinChange.setBounds(130, 378, 130, 24);
 		pinChange.addActionListener(this);
 		image.add(pinChange);
 		
 		balanceEnquiry = new JButton("Balance enquiry");
-		balanceEnquiry.setBounds(310, 430, 140, 24);
+		balanceEnquiry.setBounds(265, 378, 130, 24);
 		balanceEnquiry.addActionListener(this);
 		image.add(balanceEnquiry);
 		
 		exit = new JButton("EXIT");
-		exit.setBounds(310, 460, 140, 24);
+		exit.setBounds(265, 406, 130, 24);
 		exit.addActionListener(this);
 		image.add(exit);
 		
