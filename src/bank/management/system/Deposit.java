@@ -5,11 +5,14 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Deposit extends JFrame implements ActionListener	{
@@ -70,7 +73,25 @@ public class Deposit extends JFrame implements ActionListener	{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == deposit) {
-			
+			String number = amount.getText();
+			Date date = new Date();
+			if (number.equals("")) {
+				JOptionPane.showMessageDialog(null, "Please enter the amount you want to deposit");
+				
+			}else {
+				Conn conn = new Conn();
+				String query = "insert into bank values('"+pinNumber+"', '"+date+"', 'Deposit', '"+number+"')";
+				try {
+					conn.s.executeUpdate(query);
+					JOptionPane.showMessageDialog(null, "$ "+number+" deposited successfully");
+					setVisible(false);
+					new Transactions(pinNumber).setVisible(true);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+					
 		}else if(e.getSource() == back) {
 			setVisible(false);
 			new Transactions(pinNumber).setVisible(true);
