@@ -21,8 +21,11 @@ public class Deposit extends JFrame implements ActionListener	{
 	
 	JButton deposit, back;
 	JTextField amount ;
+	String pinNumber;
 	
-	Deposit(){
+	Deposit(String pinNumber){
+		
+		this.pinNumber = pinNumber;
 		setLayout(null);
 		getContentPane().setBackground(Color.WHITE);
 		
@@ -60,7 +63,7 @@ public class Deposit extends JFrame implements ActionListener	{
 	}
 
 	public static void main(String[] args) {
-		new Deposit();
+		new Deposit("");
 
 	}
 
@@ -69,7 +72,8 @@ public class Deposit extends JFrame implements ActionListener	{
 		if(e.getSource() == deposit) {
 			
 		}else if(e.getSource() == back) {
-			
+			setVisible(false);
+			new Transactions(pinNumber).setVisible(true);
 		}
 		
 	}
