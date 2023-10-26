@@ -39,7 +39,7 @@ public class Withdraw extends JFrame implements ActionListener	{
 		image.setBounds(0, 0, 700, 700);
 		add(image);
 		
-		JLabel text = new JLabel("Enter the amount you want to withdrawl");
+		JLabel text = new JLabel("Enter the amount you want to withdraw");
 		text.setBounds(150, 240, 500, 30);
 		text.setForeground(Color.WHITE);
 		text.setFont(new Font("System", Font.BOLD, 12));
@@ -53,7 +53,7 @@ public class Withdraw extends JFrame implements ActionListener	{
 		withdraw = new JButton("Withdraw");
 		withdraw.setBounds(265, 378, 130, 24);
 		withdraw.addActionListener(this);
-		image.add(withdrawl);
+		image.add(withdraw);
 		
 		back = new JButton("BACK");
 		back.setBounds(265, 406, 130, 24);
@@ -66,7 +66,7 @@ public class Withdraw extends JFrame implements ActionListener	{
 	}
 
 	public static void main(String[] args) {
-		new Withdrawl("");
+		new Withdraw("");
 
 	}
 
