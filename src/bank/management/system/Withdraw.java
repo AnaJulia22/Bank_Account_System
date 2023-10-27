@@ -72,7 +72,7 @@ public class Withdraw extends JFrame implements ActionListener	{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == withdrawl) {
+		if(e.getSource() == withdraw) {
 			String number = amount.getText();
 			Date date = new Date();
 			if (number.equals("")) {
