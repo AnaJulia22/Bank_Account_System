@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -106,7 +107,13 @@ public class FastCash extends JFrame implements ActionListener{
 					return;
 				}
 				
+				Date date = new Date();
+				String query = "insert into bank calues('"+pinNumber+"', '"+date+"', 'Withdraw', '"+amount+"')";
+				c.s.executeUpdate(query);
+				JOptionPane.showMessageDialog(null, "$ "+amount+ " debited successfully");
 				
+				setVisible(false);
+				new Transactions(pinNumber).setVisible(true);
 			} catch(Exception e1){
 				System.out.println(e1);
 			}
