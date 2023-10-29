@@ -12,6 +12,8 @@ public class PinChange extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	String pinNumber;
+	JTextField newPin, newPin2;
+	JButton change, back;
 	PinChange(String pinNumber) {
 		this.pinNumber = pinNumber;
 		
@@ -36,7 +38,7 @@ public class PinChange extends JFrame implements ActionListener{
 		newPinText.setFont(new Font("System", Font.BOLD, 14));
 		image.add(newPinText);
 		
-		JTextField newPin = new JTextField();
+		newPin = new JTextField();
 		newPin.setBounds(250, 270, 150, 20);
 		newPin.setFont(new Font("System", Font.BOLD, 16));
 		image.add(newPin);
@@ -47,17 +49,17 @@ public class PinChange extends JFrame implements ActionListener{
 		newPinText2.setFont(new Font("System", Font.BOLD, 14));
 		image.add(newPinText2);
 		
-		JTextField newPin2 = new JTextField();
+		newPin2 = new JTextField();
 		newPin2.setBounds(250, 300, 150, 20);
 		newPin2.setFont(new Font("System", Font.BOLD, 16));
 		image.add(newPin2);	
 		
-		JButton change = new JButton("Change");
+		change = new JButton("Change");
 		change.setBounds(271, 378, 130, 24);
 		change.addActionListener(this);
 		image.add(change);
 		
-		JButton back = new JButton("BACK");
+		back = new JButton("BACK");
 		back.setBounds(271, 406, 130, 24);
 		back.addActionListener(this);
 		image.add(back);
@@ -69,13 +71,44 @@ public class PinChange extends JFrame implements ActionListener{
 	
 	public static void main(String[] args) {
 		new PinChange("");
-
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getSource() == change) {
+			try {
+				String nPin = newPin.getText();
+				String nPin2 = newPin2.getText();
+				
+				if(!nPin.equals(nPin2)) {
+					JOptionPane.showMessageDialog(null, "Entered pin does not match");
+				}
+
+				if (nPin.equals("")) {
+					JOptionPane.showMessageDialog(null, "Plesase enter new pin");
+				} else if (nPin2.equals("")) {
+					JOptionPane.showMessageDialog(null, "Plesase re-enter new pin");
+				} else {
+
+					Conn c = new Conn();
+					String q1 = "update bank set pin = '" + nPin2 + "' where pin = '" + pinNumber + "'";
+					String q2 = "update login set pin = '" + nPin2 + "' where pin = '" + pinNumber + "'";
+					String q3 = "update signupthree set pin = '" + nPin2 + "' where pin = '" + pinNumber + "'";
+
+					c.s.executeUpdate(q1);
+					c.s.executeUpdate(q2);
+					c.s.executeUpdate(q3);
+
+					setVisible(false);
+					new Login().setVisible(true);
+				}
+			} catch (Exception e2) {
+				System.out.println(e2);
+			}
+		} else {
+			setVisible(false);
+			new Transactions(pinNumber).setVisible(true);
+		}
 	}
 
 }
