@@ -3,7 +3,6 @@ package bank.management.system;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
-import java.util.Date;
 
 import javax.swing.*;
 
