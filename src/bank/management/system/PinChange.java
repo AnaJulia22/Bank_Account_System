@@ -85,9 +85,9 @@ public class PinChange extends JFrame implements ActionListener{
 				}
 
 				if (nPin.equals("")) {
-					JOptionPane.showMessageDialog(null, "Plesase enter new pin");
+					JOptionPane.showMessageDialog(null, "Please enter new pin");
 				} else if (nPin2.equals("")) {
-					JOptionPane.showMessageDialog(null, "Plesase re-enter new pin");
+					JOptionPane.showMessageDialog(null, "Please re-enter new pin");
 				} else {
 
 					Conn c = new Conn();
@@ -98,6 +98,8 @@ public class PinChange extends JFrame implements ActionListener{
 					c.s.executeUpdate(q1);
 					c.s.executeUpdate(q2);
 					c.s.executeUpdate(q3);
+					
+					JOptionPane.showMessageDialog(null, "Pin changed successfully");
 
 					setVisible(false);
 					new Login().setVisible(true);
