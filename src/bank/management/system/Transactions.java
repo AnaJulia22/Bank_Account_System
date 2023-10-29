@@ -84,18 +84,21 @@ public class Transactions extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == exit) {
 			System.exit(0);
-		}else if (e.getSource() == deposit) {
+		} else if (e.getSource() == deposit) {
 			setVisible(false);
 			new Deposit(pinNumber).setVisible(true);
-		}else if (e.getSource() == withdraw) {
+		} else if (e.getSource() == withdraw) {
 			setVisible(false);
 			new Withdraw(pinNumber).setVisible(true);
-		}else if (e.getSource() == fastcash) {
+		} else if (e.getSource() == fastcash) {
 			setVisible(false);
 			new FastCash(pinNumber).setVisible(true);
-		}else if (e.getSource() == pinChange) {
+		} else if (e.getSource() == pinChange) {
 			setVisible(false);
 			new PinChange(pinNumber).setVisible(true);
+		} else if (e.getSource() == pinChange) {
+			setVisible(false);
+			new BalanceEnquiry().setVisible(true);
 		}
 	}
 	
