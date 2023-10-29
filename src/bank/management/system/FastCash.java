@@ -14,7 +14,7 @@ public class FastCash extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	JButton deposit, withdraw, fastcash, miniState, pinChange, balanceEnquiry, exit;
+	JButton hundred, fivehundred, thousand, twothousand, fivethousand, tenthousand, back;
 	String pinNumber;
 	
 	FastCash(String pinNumber){
@@ -36,40 +36,40 @@ public class FastCash extends JFrame implements ActionListener{
 		text.setFont(new Font("System", Font.BOLD, 16));
 		image.add(text);
 		
-		deposit = new JButton("$ 100.00");
-		deposit.setBounds(130, 323, 130, 24);
-		deposit.addActionListener(this);
-		image.add(deposit);
+		hundred = new JButton("$ 100.00");
+		hundred.setBounds(130, 323, 130, 24);
+		hundred.addActionListener(this);
+		image.add(hundred);
 		
-		withdraw = new JButton("$ 500.00");
-		withdraw.setBounds(130, 350, 130, 24);
-		withdraw.addActionListener(this);
-		image.add(withdraw);
+		fivehundred = new JButton("$ 500.00");
+		fivehundred.setBounds(130, 350, 130, 24);
+		fivehundred.addActionListener(this);
+		image.add(fivehundred);
 		
-		fastcash = new JButton("$ 1000.00");
-		fastcash.setBounds(265,323, 130, 24);
-		fastcash.addActionListener(this);
-		image.add(fastcash);
+		thousand = new JButton("$ 1,000.00");
+		thousand.setBounds(265,323, 130, 24);
+		thousand.addActionListener(this);
+		image.add(thousand);
 		
-		miniState = new JButton("$ 2000.00");
-		miniState.setBounds(265, 350, 130, 24);
-		miniState.addActionListener(this);
-		image.add(miniState);
+		twothousand = new JButton("$ 2,000.00");
+		twothousand.setBounds(265, 350, 130, 24);
+		twothousand.addActionListener(this);
+		image.add(twothousand);
 		
-		pinChange = new JButton("$ 5000.00");
-		pinChange.setBounds(130, 378, 130, 24);
-		pinChange.addActionListener(this);
-		image.add(pinChange);
+		fivethousand = new JButton("$ 5,000.00");
+		fivethousand.setBounds(130, 378, 130, 24);
+		fivethousand.addActionListener(this);
+		image.add(fivethousand);
 		
-		balanceEnquiry = new JButton("$ 10000.00");
-		balanceEnquiry.setBounds(265, 378, 130, 24);
-		balanceEnquiry.addActionListener(this);
-		image.add(balanceEnquiry);
+		tenthousand = new JButton("$ 10,000.00");
+		tenthousand.setBounds(265, 378, 130, 24);
+		tenthousand.addActionListener(this);
+		image.add(tenthousand);
 		
-		exit = new JButton("BACK");
-		exit.setBounds(265, 406, 130, 24);
-		exit.addActionListener(this);
-		image.add(exit);
+		back = new JButton("BACK");
+		back.setBounds(265, 406, 130, 24);
+		back.addActionListener(this);
+		image.add(back);
 		
 		setSize(700, 700);
 		setVisible(true);
@@ -78,7 +78,7 @@ public class FastCash extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == exit) {
+		if(e.getSource() == back) {
 			setVisible(false);
 			new Transactions(pinNumber).setVisible(true);
 		}else {
@@ -95,7 +95,7 @@ public class FastCash extends JFrame implements ActionListener{
 					}
 				}
 				
-				if(e.getSource() != exit && balance < Integer.parseInt(amount)) {
+				if(e.getSource() != back && balance < Integer.parseInt(amount)) {
 					JOptionPane.showMessageDialog(null, "Insufficient balance");
 					return;
 				}
