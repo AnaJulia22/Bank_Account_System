@@ -27,11 +27,15 @@ public class BalanceEnquiry extends JFrame implements ActionListener{
 		add(image);
 		
 		Conn c = new Conn();
-		String balance = null;
+		Integer balance = 0;
 		try {			
-			ResultSet rs = c.s.executeQuery("select amount from bank where pin = '"+pinNumber+"'");
+			ResultSet rs = c.s.executeQuery("select * from bank where pin = '"+pinNumber+"'");
 			while(rs.next()) {
-				balance = rs.getString("amount");
+				if (rs.getString("type").equals("Deposit")) {
+					balance =+ Integer.parseInt(rs.getString("amount"));
+				} else {
+					balance =- Integer.parseInt(rs.getString("amount"));
+				}
 			}			
 			
 		} catch(Exception e1){
